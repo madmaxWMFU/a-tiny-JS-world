@@ -6,26 +6,41 @@
    */
 
 // ======== OBJECTS DEFINITIONS ========
-// Define your objects here
+const man = {
+    name: "Max",
+    gender: "male",
+    species: "human",
+    hands: "2",
+    legs: "2",
+    say: () => `Hallo!`,
+};
 
+const woman = {
+    name: "Lena",
+    gender: "female",
+    species: "human",
+    hands: "2",
+    legs: "2",
+    say: () => `Bonjour!`,
+};
+
+const dog = {
+    name: "Adolf",
+    gender: "male",
+    species: "dog",
+    hands: "0",
+    legs: "4",
+    say: () => `Woof!`,
+};
+
+const cat = {
+    name: "Klara",
+    gender: "female",
+    species: "cat",
+    hands: "0",
+    legs: "4",
+    say: () => `Meeow!`,
+};
 
 // ======== OUTPUT ========
-/* Use print(message) for output.
-   Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
-
-   Message can contain HTML markup. You may also tweak index.html and/or styles.css.
-   However, please, REFRAIN from improving visuals at least until your code is reviewed
-   so code reviewers might focus on a single file that is index.js.
-   */
-
-/* Print examples:
-   print('ABC');
-   print('<strong>ABC</strong>');
-   print('<strong>ABC</strong>', 'div');
-
-   print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
-
-
+[man, woman, dog, cat].forEach(arr => print(`${arr.species}; <strong>${arr.name}</strong>; ${arr.gender}; ${arr.hands}; ${arr.legs}; <em>${arr.say()}</em>;`, 'div'));
