@@ -6,41 +6,62 @@
    */
 
 // ======== OBJECTS DEFINITIONS ========
-const man = {
-    name: "Max",
-    gender: "male",
-    species: "human",
-    hands: "2",
-    legs: "2",
-    say: () => `Hallo!`,
-};
+class Objects {
+    constructor(name, gender, species, greeting) {
+        this.name = name;
+        this.gender = gender;
+        this.species = species;
+        this.greeting =greeting;
+    }
 
-const woman = {
-    name: "Lena",
-    gender: "female",
-    species: "human",
-    hands: "2",
-    legs: "2",
-    say: () => `Bonjour!`,
-};
+    say() {
+        return this.greeting;
+    }
 
-const dog = {
-    name: "Adolf",
-    gender: "male",
-    species: "dog",
-    hands: "0",
-    legs: "4",
-    say: () => `Woof!`,
-};
+    allAbout() {
+        return [
+            this.species,
+            `<strong>${this.name}</strong>`,
+            this.gender,
+            `<em>${this.say()}</em>`
+        ];
+    }
+}
 
-const cat = {
-    name: "Klara",
-    gender: "female",
-    species: "cat",
-    hands: "0",
-    legs: "4",
-    say: () => `Meeow!`,
-};
+class Human extends Objects {
+    constructor(name, gender, species, hands, legs, greeting) {
+        super(name, gender, species, greeting);
+        this.hands = hands;
+        this.legs = legs;
+    }
+
+    allAbout() {
+        let allAbout = super.allAbout();
+        let firstPart = allAbout.slice(0, 3);
+        let secondPart = allAbout.slice(3, 4);
+        return [...firstPart, this.hands, this.legs, ...secondPart].join("; ");
+    }
+}
+
+class Animal extends Objects {
+    constructor(name, gender, species, wings, paws, greeting) {
+        super(name, gender, species, greeting);
+        this.wings = wings;
+        this.paws = paws;
+    }
+
+    allAbout() {
+        let allAbout = super.allAbout();
+        let firstPart = allAbout.slice(0, 3);
+        let secondPart = allAbout.slice(3, 4);
+        return [...firstPart, this.wings, this.paws, ...secondPart].join("; ");
+    }    
+}
+
+const man = new Human('Max', 'human', 'male', 2, 2, 'Hallo!'); 
+const woman = new Human('Lena', 'human', 'female', 2, 2, 'Bonjour!'); 
+const dog = new Animal('Adolf', 'male', 'dog', 0, 4, 'Woof!'); 
+const cat = new Animal('Klara', 'female', 'cat', 0, 4, 'Meeow!'); 
 
 const createSringTemplate = (obj) => {
     return [
@@ -53,4 +74,10 @@ const createSringTemplate = (obj) => {
     ].join("; ");
 };
 // ======== OUTPUT ========
+<<<<<<< HEAD
 [man, woman, dog, cat].forEach(arr => print(createSringTemplate(arr), 'div'));
+||||||| merged common ancestors
+[man, woman, dog, cat].forEach(arr => print(`${arr.species}; <strong>${arr.name}</strong>; ${arr.gender}; ${arr.hands}; ${arr.legs}; <em>${arr.say()}</em>;`, 'div'));
+=======
+[man, woman, dog, cat].forEach(arr => print(arr.allAbout(), 'div'));
+>>>>>>> master
