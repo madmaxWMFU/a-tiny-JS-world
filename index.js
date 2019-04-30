@@ -63,21 +63,5 @@ const woman = new Human('Lena', 'human', 'female', 2, 2, 'Bonjour!');
 const dog = new Animal('Adolf', 'male', 'dog', 0, 4, 'Woof!'); 
 const cat = new Animal('Klara', 'female', 'cat', 0, 4, 'Meeow!'); 
 
-const createSringTemplate = (obj) => {
-    return [
-        obj.species,
-        `<strong>${obj.name}</strong>`,
-        obj.gender,
-        obj.hands,
-        obj.legs,
-        `<em>${obj.say()}</em>`
-    ].join("; ");
-};
 // ======== OUTPUT ========
-<<<<<<< HEAD
-[man, woman, dog, cat].forEach(arr => print(createSringTemplate(arr), 'div'));
-||||||| merged common ancestors
-[man, woman, dog, cat].forEach(arr => print(`${arr.species}; <strong>${arr.name}</strong>; ${arr.gender}; ${arr.hands}; ${arr.legs}; <em>${arr.say()}</em>;`, 'div'));
-=======
 [man, woman, dog, cat].forEach(arr => print(arr.allAbout(), 'div'));
->>>>>>> master
